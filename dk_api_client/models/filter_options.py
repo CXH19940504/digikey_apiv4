@@ -240,6 +240,9 @@ class FilterOptions(object):
         :param market_place_filters: The market_place_filters of this FilterOptions.  # noqa: E501
         :type: list[str]
         """
+        if market_place_filters is None:
+            self._market_place_filters = market_place_filters
+            return
         allowed_values = ["NoFilter", "ExcludeMarketPlace", "MarketPlaceOnly"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(market_place_filters).issubset(set(allowed_values))):  # noqa: E501

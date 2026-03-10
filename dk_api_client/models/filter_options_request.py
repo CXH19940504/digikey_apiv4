@@ -38,6 +38,7 @@ class FilterOptionsRequest(object):
         'status_filter': 'list[FilterId]',
         'packaging_filter': 'list[FilterId]',
         'market_place_filter': 'str',
+        'tariff_filter': 'str',
         'series_filter': 'list[FilterId]',
         'minimum_quantity_available': 'int',
         'parameter_filter_request': 'ParameterFilterRequest',
@@ -50,13 +51,16 @@ class FilterOptionsRequest(object):
         'status_filter': 'StatusFilter',
         'packaging_filter': 'PackagingFilter',
         'market_place_filter': 'MarketPlaceFilter',
+        'tariff_filter': 'TariffFilter',
         'series_filter': 'SeriesFilter',
         'minimum_quantity_available': 'MinimumQuantityAvailable',
         'parameter_filter_request': 'ParameterFilterRequest',
         'search_options': 'SearchOptions'
     }
 
-    def __init__(self, manufacturer_filter=None, category_filter=None, status_filter=None, packaging_filter=None, market_place_filter=None, series_filter=None, minimum_quantity_available=None, parameter_filter_request=None, search_options=None, _configuration=None):  # noqa: E501
+    def __init__(self, manufacturer_filter=None, category_filter=None, status_filter=None, packaging_filter=None,
+                 market_place_filter=None,  tariff_filter=None, series_filter=None, minimum_quantity_available=None,
+                 parameter_filter_request=None, search_options=None, _configuration=None):  # noqa: E501
         """FilterOptionsRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +71,7 @@ class FilterOptionsRequest(object):
         self._status_filter = None
         self._packaging_filter = None
         self._market_place_filter = None
+        self._tariff_filter = None
         self._series_filter = None
         self._minimum_quantity_available = None
         self._parameter_filter_request = None
@@ -83,6 +88,8 @@ class FilterOptionsRequest(object):
             self.packaging_filter = packaging_filter
         if market_place_filter is not None:
             self.market_place_filter = market_place_filter
+        if tariff_filter is not None:
+            self._tariff_filter = tariff_filter
         if series_filter is not None:
             self.series_filter = series_filter
         if minimum_quantity_available is not None:
@@ -204,6 +211,9 @@ class FilterOptionsRequest(object):
         :param market_place_filter: The market_place_filter of this FilterOptionsRequest.  # noqa: E501
         :type: str
         """
+        if market_place_filter is None:
+            self._market_place_filter = market_place_filter
+            return
         allowed_values = ["NoFilter", "ExcludeMarketPlace", "MarketPlaceOnly"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 market_place_filter not in allowed_values):
@@ -213,6 +223,14 @@ class FilterOptionsRequest(object):
             )
 
         self._market_place_filter = market_place_filter
+
+    @property
+    def tariff_filter(self):
+        return self._tariff_filter
+
+    @tariff_filter.setter
+    def tariff_filter(self, tariff_filter):
+        self._tariff_filter = tariff_filter
 
     @property
     def series_filter(self):
@@ -301,6 +319,9 @@ class FilterOptionsRequest(object):
         :param search_options: The search_options of this FilterOptionsRequest.  # noqa: E501
         :type: list[str]
         """
+        if search_options is None:
+            self._search_options = None
+            return
         allowed_values = ["ChipOutpost", "Has3DModel", "HasCadModel", "HasDatasheet", "HasProductPhoto", "InStock", "NewProduct", "NonRohsCompliant", "NormallyStocking", "RohsCompliant"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(search_options).issubset(set(allowed_values))):  # noqa: E501
