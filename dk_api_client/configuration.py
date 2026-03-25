@@ -86,6 +86,8 @@ class Configuration(object):
         self.key_file = None
         # Set this to True/False to enable/disable SSL hostname verification.
         self.assert_hostname = None
+        # Set Retry Strategy
+        self.retries = None
 
         # urllib3 connection pool's maximum number of connections saved
         # per pool. urllib3 uses 1 connection as default value, but this is

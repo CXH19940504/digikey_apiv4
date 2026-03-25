@@ -35,7 +35,7 @@ from dk_api_client.models.description import Description
 from dk_api_client.models.digi_reel_pricing import DigiReelPricing
 from dk_api_client.models.filter_id import FilterId
 from dk_api_client.models.filter_options import FilterOptions
-from dk_api_client.models.filter_options_request import FilterOptionsRequest
+from dk_api_client.models.filter_options_request import FilterOptionsRequest, SortOptions
 from dk_api_client.models.filter_value import FilterValue
 from dk_api_client.models.iso_search_locale import IsoSearchLocale
 from dk_api_client.models.keyword_request import KeywordRequest

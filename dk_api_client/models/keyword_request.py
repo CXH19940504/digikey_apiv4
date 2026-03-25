@@ -36,17 +36,20 @@ class KeywordRequest(object):
         'keywords': 'str',
         'limit': 'int',
         'offset': 'int',
-        'filter_options_request': 'FilterOptionsRequest'
+        'filter_options_request': 'FilterOptionsRequest',
+        'sort_options': 'SortOptions'
     }
 
     attribute_map = {
         'keywords': 'Keywords',
         'limit': 'Limit',
         'offset': 'Offset',
-        'filter_options_request': 'FilterOptionsRequest'
+        'filter_options_request': 'FilterOptionsRequest',
+        'sort_options': 'SortOptions'
     }
 
-    def __init__(self, keywords=None, limit=None, offset=None, filter_options_request=None, _configuration=None):  # noqa: E501
+    def __init__(self, keywords=None, limit=None, offset=None, filter_options_request=None, sort_options=None,
+                 _configuration=None):  # noqa: E501
         """KeywordRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -56,6 +59,7 @@ class KeywordRequest(object):
         self._limit = None
         self._offset = None
         self._filter_options_request = None
+        self._sort_options = None
         self.discriminator = None
 
         if keywords is not None:
@@ -66,6 +70,8 @@ class KeywordRequest(object):
             self.offset = offset
         if filter_options_request is not None:
             self.filter_options_request = filter_options_request
+        if sort_options is not None:
+            self._sort_options = sort_options
 
     @property
     def keywords(self):
@@ -156,6 +162,27 @@ class KeywordRequest(object):
         """
 
         self._filter_options_request = filter_options_request
+
+    @property
+    def sort_options(self):
+        """Gets the sort_options of this KeywordRequest.  # noqa: E501
+
+
+        :return: The sort_options of this KeywordRequest.  # noqa: E501
+        :rtype: SortOptions
+        """
+        return self._sort_options
+
+    @sort_options.setter
+    def sort_options(self, sort_options):
+        """Sets the sort_options of this KeywordRequest.
+
+
+        :param sort_options: The filter_options_request of this KeywordRequest.  # noqa: E501
+        :type: SortOptions
+        """
+
+        self._sort_options = sort_options
 
     def to_dict(self):
         """Returns the model properties as a dict"""
